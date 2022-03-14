@@ -58,7 +58,8 @@ EXAMPLE						    *AdvancedHardcopy-example*
 ==============================================================================
 INSTALLATION				       *AdvancedHardcopy-installation*
 
-The code is hosted in a Git repo at https://github.com/inkarkat/vim-AdvancedHardcopy
+The code is hosted in a Git repo at
+    https://github.com/inkarkat/vim-AdvancedHardcopy
 You can use your favorite plugin manager, or "git clone" into a directory used
 for Vim |packages|. Releases are on the "stable" branch, the latest unstable
 development snapshot on "master".
@@ -97,7 +98,8 @@ IDEAS						      *AdvancedHardcopy-ideas*
 CONTRIBUTING					 *AdvancedHardcopy-contribute*
 
 Report any bugs, send patches, or suggest features via the issue tracker at
-https://github.com/inkarkat/vim-AdvancedHardcopy/issues or email (address below).
+https://github.com/inkarkat/vim-AdvancedHardcopy/issues or email (address
+below).
 
 ==============================================================================
 HISTORY						    *AdvancedHardcopy-history*
@@ -109,7 +111,7 @@ First published version.
 Started development.
 
 ==============================================================================
-Copyright: (C) 2011-2018 Ingo Karkat
+Copyright: (C) 2011-2022 Ingo Karkat
 The VIM LICENSE applies to this plugin; see |copyright|.
 
 Maintainer:	Ingo Karkat <ingo@karkat.de>
