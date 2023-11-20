@@ -16,6 +16,19 @@ let g:loaded_AdvancedHardcopy = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
+"- configuration ---------------------------------------------------------------
+
+if ! exists('g:AdvancedHardcopy_PDFprinter')
+    let g:AdvancedHardcopy_PDFprinter = executable('ps2pdf') ? 'ps2pdf' : ''
+endif
+
+if ! exists('g:AdvancedHardcopy_PDFdir')
+    let g:AdvancedHardcopy_PDFdir = ''
+endif
+
+
+"- commands --------------------------------------------------------------------
+
 command! -bar -bang -nargs=? -range=% Hardcopy if ! AdvancedHardcopy#Hardcopy(<line1>, <line2>, <q-bang>, <q-args>) | echoerr ingo#err#Get() | endif
 
 command! -bar -bang -nargs=? -range=% HardcopyWithGuiFont
@@ -31,6 +44,10 @@ command! -bar -bang -nargs=? -range=% HardcopyWithFoldtext if ! AdvancedHardcopy
 
 
 command! -bar SetColorsForPrinting call AdvancedHardcopy#SetColorsForPrinting()
+
+if ! empty(g:AdvancedHardcopy_PDFprinter)
+    command! -bar -nargs=* -complete=command -range=% PDF if ! AdvancedHardcopy#PDF#Command('<line1>,<line2>', <q-args>) | echoerr ingo#err#Get() | endif
+endif
 
 let &cpo = s:save_cpo
 unlet s:save_cpo

@@ -52,6 +52,10 @@ USAGE						      *AdvancedHardcopy-usage*
 						       *:SetColorsForPrinting*
 :SetColorsForPrinting	Make some highlight groups darker for better
 			visibility in printouts.
+									*:PDF*
+:[range]PDF [{hardcopy-command} [arguments]]
+			Print [range] lines (default whole file) into a PDF
+			[through custom {hardcopy-command}].
 
 EXAMPLE						    *AdvancedHardcopy-example*
 
@@ -80,7 +84,17 @@ DEPENDENCIES				       *AdvancedHardcopy-dependencies*
 CONFIGURATION				      *AdvancedHardcopy-configuration*
 
 For a permanent configuration, put the following commands into your |vimrc|:
-configvar
+
+					       *g:AdvancedHardcopy_PDFprinter*
+By default ps2pdf is used to render Vim's PostScript output into a PDF file.
+To change the command, use: >
+    let g:AdvancedHardcopy_PDFprinter = 'ps2pdf'
+<		       *b:AdvancedHardcopy_PDFdir* *g:AdvancedHardcopy_PDFdir*
+The |:PDF| command writes the PDF into the current directory (with the printed
+buffer's filename, but .pdf file extension). If you want to collect all
+generated PDFs in a static directory instead, set: >
+    let g:AdvancedHardcopy_PDFdir = 'path/to/dir/'
+<
 						      *AdvancedHardcopy-remap*
 plugmap
 ==============================================================================
@@ -111,7 +125,7 @@ First published version.
 Started development.
 
 ==============================================================================
-Copyright: (C) 2011-2022 Ingo Karkat
+Copyright: (C) 2011-2023 Ingo Karkat
 The VIM LICENSE applies to this plugin; see |copyright|.
 
 Maintainer:	Ingo Karkat <ingo@karkat.de>

@@ -39,6 +39,10 @@ USAGE
     :SetColorsForPrinting   Make some highlight groups darker for better
                             visibility in printouts.
 
+    :[range]PDF [{hardcopy-command} [arguments]]
+                            Print [range] lines (default whole file) into a PDF
+                            [through custom {hardcopy-command}].
+
 INSTALLATION
 ------------------------------------------------------------------------------
 
@@ -66,7 +70,17 @@ CONFIGURATION
 ------------------------------------------------------------------------------
 
 For a permanent configuration, put the following commands into your vimrc:
-configvar
+
+By default ps2pdf is used to render Vim's PostScript output into a PDF file.
+To change the command, use:
+
+    let g:AdvancedHardcopy_PDFprinter = 'ps2pdf'
+
+The :PDF command writes the PDF into the current directory (with the printed
+buffer's filename, but .pdf file extension). If you want to collect all
+generated PDFs in a static directory instead, set:
+
+    let g:AdvancedHardcopy_PDFdir = 'path/to/dir/'
 
 plugmap
 CONTRIBUTING
@@ -86,7 +100,7 @@ First published version.
 - Started development.
 
 ------------------------------------------------------------------------------
-Copyright: (C) 2011-2022 Ingo Karkat -
+Copyright: (C) 2011-2023 Ingo Karkat -
 The [VIM LICENSE](http://vimdoc.sourceforge.net/htmldoc/uganda.html#license) applies to this plugin.
 
 Maintainer:     Ingo Karkat &lt;ingo@karkat.de&gt;
