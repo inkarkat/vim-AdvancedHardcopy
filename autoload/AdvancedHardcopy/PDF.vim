@@ -8,16 +8,17 @@
 "
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
 
-function! AdvancedHardcopy#PDF#Command( range, command ) abort
+function! AdvancedHardcopy#PDF#Command( range, command, ... ) abort
     let l:pdfDirspec = ingo#plugin#setting#GetBufferLocal('AdvancedHardcopy_PDFdir')
     let l:pdfFilespec = empty(l:pdfDirspec)
     \   ? expand('%:r') . '.pdf'
     \   : ingo#fs#path#Combine(l:pdfDirspec, expand('%:t:r') . '.pdf')
 
     let l:save_printexpr = &printexpr
-    let &printexpr = printf('system(%s . " " . v:fname_in . " " . %s) . delete(v:fname_in) + v:shell_error',
+    let &printexpr = printf('system(%s . " " . v:fname_in . " " . %s%s) . delete(v:fname_in) + v:shell_error',
     \   string(g:AdvancedHardcopy_PDFprinter),
-    \   string(ingo#compat#fnameescape(l:pdfFilespec))
+    \   string(ingo#compat#fnameescape(l:pdfFilespec)),
+    \   (a:0 ? ' . " && " . ' . string(substitute(a:1, '%', ingo#compat#fnameescape(l:pdfFilespec), 'g')) : '')
     \)
 
     let l:command = empty(a:command)
