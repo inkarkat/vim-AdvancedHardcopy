@@ -89,6 +89,11 @@ For a permanent configuration, put the following commands into your |vimrc|:
 By default ps2pdf is used to render Vim's PostScript output into a PDF file.
 To change the command, use: >
     let g:AdvancedHardcopy_PDFprinter = 'ps2pdf'
+<		       *b:AdvancedHardcopy_PDFdir* *g:AdvancedHardcopy_PDFdir*
+The |:PDF| command writes the PDF into the current directory (with the printed
+buffer's filename, but .pdf file extension). If you want to collect all
+generated PDFs in a static directory instead, set: >
+    let g:AdvancedHardcopy_PDFdir = 'path/to/dir/'
 <
 						      *AdvancedHardcopy-remap*
 plugmap

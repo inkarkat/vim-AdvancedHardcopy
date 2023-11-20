@@ -22,6 +22,10 @@ if ! exists('g:AdvancedHardcopy_PDFprinter')
     let g:AdvancedHardcopy_PDFprinter = executable('ps2pdf') ? 'ps2pdf' : ''
 endif
 
+if ! exists('g:AdvancedHardcopy_PDFdir')
+    let g:AdvancedHardcopy_PDFdir = ''
+endif
+
 
 "- commands --------------------------------------------------------------------
 
