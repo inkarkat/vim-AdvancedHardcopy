@@ -1,28 +1,20 @@
 " AdvancedHardcopy.vim: Make hardcopies with more power.
 "
 " DEPENDENCIES:
-"   - ingo/compat.vim autoload script
-"   - ingo/err.vim autoload script
-"   - ingo/folds/persistence.vim autoload script
-"   - ingo/fs/tempfile.vim autoload script
-"   - ingo/os.vim autoload script
-"   - ingo/range.vim autoload script
-"   - ingoenv.vim autoload script
+"   - ingo-library.vim plugin
+"   - ingoenv.vim plugin
 "
-" Copyright: (C) 2011-2017 Ingo Karkat
+" Copyright: (C) 2011-2023 Ingo Karkat
 "   The VIM LICENSE applies to this script; see ':help copyright'.
 "
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
-"
-" REVISION	DATE		REMARKS
-"	001	01-Nov-2017	file creation from ingocommands.vim
 
 function! AdvancedHardcopy#Hardcopy( firstLnum, lastLnum, bang, arguments )
     try
 	if ingo#os#IsWindows() && ! ingoenv#BufferAsciiCheck() && &encoding ==# 'utf-8'
 	    " XXX: Vim can only correctly print non-ASCII characters when the
 	    " global 'encoding' is identical to the file's.
-	    let l:choice = confirm("Need to :set encoding=latin1 to correctly print non-ASCII characters.", "&Yes\n&No\n&Cancel")
+	    let l:choice = confirm('Need to :set encoding=latin1 to correctly print non-ASCII characters.', "&Yes\n&No\n&Cancel")
 	    if l:choice == 1
 		if &l:modified
 		    if filereadable(expand('%'))
@@ -52,7 +44,7 @@ function! AdvancedHardcopy#Hardcopy( firstLnum, lastLnum, bang, arguments )
 	if has('unix') && ! has('gui_running') && &t_Co > 16
 	    " XXX: Work around the |todo.txt| item
 	    " "Using the cterm_color[] table is wrong when t_colors is > 16."
-	    let l:choice = confirm("Need to reduce the color depth to 16 to print the correct (limited) colors. (For full colors, print from GVIM.)", "&Yes\n&No\n&Cancel")
+	    let l:choice = confirm('Need to reduce the color depth to 16 to print the correct (limited) colors. (For full colors, print from GVIM.)', "&Yes\n&No\n&Cancel")
 	    if l:choice == 1
 		set t_Co=16
 		" To set the correct colors, the current colorscheme must

@@ -1,16 +1,12 @@
 " AdvancedHardcopy.vim: Make hardcopies with more power.
 "
 " DEPENDENCIES:
-"   - AdvancedHardcopy.vim autoload script
-"   - ingo/err.vim autoload script
+"   - ingo-library.vim plugin
 "
-" Copyright: (C) 2011-2017 Ingo Karkat
+" Copyright: (C) 2011-2023 Ingo Karkat
 "   The VIM LICENSE applies to this script; see ':help copyright'.
 "
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
-"
-" REVISION	DATE		REMARKS
-"	001	01-Nov-2017	file creation from ingocommands.vim
 
 " Avoid installing twice or when in unsupported Vim version.
 if exists('g:loaded_AdvancedHardcopy') || (v:version < 700)
