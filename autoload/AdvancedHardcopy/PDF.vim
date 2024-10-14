@@ -3,7 +3,7 @@
 " DEPENDENCIES:
 "   - ingo-library.vim plugin
 "
-" Copyright: (C) 2023 Ingo Karkat
+" Copyright: (C) 2023-2024 Ingo Karkat
 "   The VIM LICENSE applies to this script; see ':help copyright'.
 "
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
@@ -17,8 +17,8 @@ function! AdvancedHardcopy#PDF#Command( range, command, ... ) abort
     let l:save_printexpr = &printexpr
     let &printexpr = printf('system(%s . " " . v:fname_in . " " . %s%s) . delete(v:fname_in) + v:shell_error',
     \   string(g:AdvancedHardcopy_PDFprinter),
-    \   string(ingo#compat#fnameescape(l:pdfFilespec)),
-    \   (a:0 ? ' . " && " . ' . string(substitute(a:1, '%', ingo#compat#fnameescape(l:pdfFilespec), 'g')) : '')
+    \   string(ingo#compat#shellescape(l:pdfFilespec)),
+    \   (a:0 ? ' . " && " . ' . string(substitute(a:1, '%', ingo#compat#shellescape(l:pdfFilespec), 'g')) : '')
     \)
 
     let l:command = empty(a:command)
