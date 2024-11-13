@@ -2,16 +2,16 @@
 "
 " DEPENDENCIES:
 "   - ingo-library.vim plugin
-"   - ingoenv.vim plugin
+"   - ingoenv.vim plugin (optional)
 "
-" Copyright: (C) 2011-2023 Ingo Karkat
+" Copyright: (C) 2011-2024 Ingo Karkat
 "   The VIM LICENSE applies to this script; see ':help copyright'.
 "
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
 
 function! AdvancedHardcopy#Hardcopy( firstLnum, lastLnum, bang, arguments )
     try
-	if ingo#os#IsWindows() && ! ingoenv#BufferAsciiCheck() && &encoding ==# 'utf-8'
+	if ingo#os#IsWindows() && ! exists('*ingoenv#BufferAsciiCheck') && ingoenv#BufferAsciiCheck() && &encoding ==# 'utf-8'
 	    " XXX: Vim can only correctly print non-ASCII characters when the
 	    " global 'encoding' is identical to the file's.
 	    let l:choice = confirm('Need to :set encoding=latin1 to correctly print non-ASCII characters.', "&Yes\n&No\n&Cancel")
