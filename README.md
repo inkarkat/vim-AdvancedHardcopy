@@ -5,7 +5,9 @@ _by Ingo Karkat_
 DESCRIPTION
 ------------------------------------------------------------------------------
 
-This plugin ...
+This plugin extends Vim's built-in :hardcopy command with additional
+features around folding, syntax highlighting and fonts, and can directly
+produce a PDF file.
 
 ### SOURCE
 
@@ -65,6 +67,8 @@ To uninstall, use the :RmVimball command.
 ### DEPENDENCIES
 
 - Requires Vim 7.0 or higher.
+- Requires the ingo-library.vim plugin ([vimscript #4433](http://www.vim.org/scripts/script.php?script_id=4433)), version 1.046 or
+  higher.
 
 CONFIGURATION
 ------------------------------------------------------------------------------
@@ -82,7 +86,6 @@ generated PDFs in a static directory instead, set:
 
     let g:AdvancedHardcopy_PDFdir = 'path/to/dir/'
 
-plugmap
 CONTRIBUTING
 ------------------------------------------------------------------------------
 
@@ -100,7 +103,7 @@ First published version.
 - Started development.
 
 ------------------------------------------------------------------------------
-Copyright: (C) 2011-2023 Ingo Karkat -
+Copyright: (C) 2011-2024 Ingo Karkat -
 The [VIM LICENSE](http://vimdoc.sourceforge.net/htmldoc/uganda.html#license) applies to this plugin.
 
 Maintainer:     Ingo Karkat &lt;ingo@karkat.de&gt;

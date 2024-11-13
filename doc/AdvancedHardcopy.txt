@@ -6,7 +6,6 @@ description			|AdvancedHardcopy-description|
 usage				|AdvancedHardcopy-usage|
 installation			|AdvancedHardcopy-installation|
 configuration			|AdvancedHardcopy-configuration|
-integration			|AdvancedHardcopy-integration|
 limitations			|AdvancedHardcopy-limitations|
 known problems			|AdvancedHardcopy-known-problems|
 todo				|AdvancedHardcopy-todo|
@@ -15,9 +14,9 @@ history				|AdvancedHardcopy-history|
 ==============================================================================
 DESCRIPTION					*AdvancedHardcopy-description*
 
-This plugin ...
-
-HOW IT WORKS								     *
+This plugin extends Vim's built-in |:hardcopy| command with additional
+features around folding, syntax highlighting and fonts, and can directly
+produce a PDF file.
 
 SOURCE									     *
 
@@ -57,8 +56,6 @@ USAGE						      *AdvancedHardcopy-usage*
 			Print [range] lines (default whole file) into a PDF
 			[through custom {hardcopy-command}].
 
-EXAMPLE						    *AdvancedHardcopy-example*
-
 ==============================================================================
 INSTALLATION				       *AdvancedHardcopy-installation*
 
@@ -79,6 +76,8 @@ To uninstall, use the |:RmVimball| command.
 DEPENDENCIES				       *AdvancedHardcopy-dependencies*
 
 - Requires Vim 7.0 or higher.
+- Requires the |ingo-library.vim| plugin (vimscript #4433), version 1.046 or
+  higher.
 
 ==============================================================================
 CONFIGURATION				      *AdvancedHardcopy-configuration*
@@ -95,11 +94,6 @@ buffer's filename, but .pdf file extension). If you want to collect all
 generated PDFs in a static directory instead, set: >
     let g:AdvancedHardcopy_PDFdir = 'path/to/dir/'
 <
-						      *AdvancedHardcopy-remap*
-plugmap
-==============================================================================
-INTEGRATION					*AdvancedHardcopy-integration*
-
 ==============================================================================
 LIMITATIONS					*AdvancedHardcopy-limitations*
 
@@ -125,7 +119,7 @@ First published version.
 Started development.
 
 ==============================================================================
-Copyright: (C) 2011-2023 Ingo Karkat
+Copyright: (C) 2011-2024 Ingo Karkat
 The VIM LICENSE applies to this plugin; see |copyright|.
 
 Maintainer:	Ingo Karkat <ingo@karkat.de>
