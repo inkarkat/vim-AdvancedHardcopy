@@ -9,10 +9,11 @@
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
 
 function! AdvancedHardcopy#PDF#Command( range, command, ... ) abort
+    let l:filename = expand('%:t:r')
     let l:pdfDirspec = ingo#plugin#setting#GetBufferLocal('AdvancedHardcopy_PDFdir')
     let l:pdfFilespec = empty(l:pdfDirspec)
     \   ? expand('%:r') . '.pdf'
-    \   : ingo#fs#path#Combine(l:pdfDirspec, expand('%:t:r') . '.pdf')
+    \   : ingo#fs#path#Combine(l:pdfDirspec, (empty(l:filename) ? 'unnamed' : l:filename) . '.pdf')
 
     let l:save_printexpr = &printexpr
     let &printexpr = printf('system(%s . " " . v:fname_in . " " . %s%s) . delete(v:fname_in) + v:shell_error',
