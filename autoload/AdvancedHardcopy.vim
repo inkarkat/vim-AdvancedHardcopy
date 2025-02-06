@@ -4,7 +4,7 @@
 "   - ingo-library.vim plugin
 "   - ingoenv.vim plugin (optional)
 "
-" Copyright: (C) 2011-2024 Ingo Karkat
+" Copyright: (C) 2011-2025 Ingo Karkat
 "   The VIM LICENSE applies to this script; see ':help copyright'.
 "
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
@@ -114,6 +114,7 @@ function! AdvancedHardcopy#SetColorsForPrinting()
     highlight Type       guifg=black
     highlight Underlined guifg=black
     highlight Number     guifg=black
+    highlight ColorColumn   guibg=NONE
 endfunction
 
 " vim: set ts=8 sts=4 sw=4 noexpandtab ff=unix fdm=syntax :
